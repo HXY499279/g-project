@@ -1,0 +1,20 @@
+.eventComponent2{
+    display: inline-block !important;
+    overflow-y: scroll;
+    height: 200PX;
+    width: 400PX;
+    background-color: #badafc ;
+    margin-right: 20PX !important;
+}
+.select_middle{
+    margin: 0 5PX !important;
+    width: 180PX !important;
+}
+.select_middle:nth-child(2){
+    margin-left: 0 !important;
+    margin-right: 2PX !important;
+}
+.listitem{
+    padding: 6PX 0 !important;
+    border: 0 !important;
+}

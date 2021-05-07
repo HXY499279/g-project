@@ -1,0 +1,78 @@
+body{
+    margin: 0 auto;
+    min-width: 1500PX ;
+}
+/* App框架上的css */
+.layout{
+    background-color: white;
+}
+.header{
+    background-color: #badafc !important;
+    padding-left: 30PX;
+    font-size: 25PX;
+}
+#top{
+    display: flex !important;
+    
+}
+.content{
+    margin: 0 auto;
+    background-color: white;
+    font-size: 14PX;
+    width: 1470PX !important;
+    height: 400PX;
+}
+
+.contentfirst,.contentsecond,.contentthird,.contentfourth{
+    margin-bottom: 25PX;
+    width: 420PX;
+}
+.contentfirst{
+    margin-right: 76PX;
+    width: 200PX;
+}
+.contentfirst span{
+    display: inline-block;
+    height: 30PX;
+    line-height: 30PX;
+}
+.contentsecond{
+    margin-right: 76PX !important;
+}
+.contentthird{
+    margin-right: 76pX !important;
+}
+.contentfifth{
+    width: 1446PX !important;
+    margin: 0 auto !important;
+}
+.middle{
+    padding-top: 30PX;
+    border-top: 1PX solid silver;
+}
+
+.footer{
+    width: 1470PX !important;
+    margin:0 auto;
+    padding: 0 !important;
+    background-color: white;
+    margin-bottom: 20PX;
+}
+
+.icon{
+    font-size: 20PX;
+}
+.icon_top{
+    position: relative;
+    right: 5PX;
+}
+/* 标题的css */
+.primarytitle{
+    font-size: 18PX;
+    font-weight: 600;
+}
+.secondarytitle{
+    font-size: 16PX;
+    margin: 0 !important;
+}
+

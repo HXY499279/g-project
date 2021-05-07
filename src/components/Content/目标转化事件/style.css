@@ -1,0 +1,10 @@
+.eventComponent1{
+    width: 200PX;
+}
+.select:nth-child(1){
+    margin:20PX 0PX 60PX 0 !important;
+    overflow: hidden;
+}
+.select{
+    width: 200PX !important;
+}

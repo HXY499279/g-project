@@ -1,0 +1,14 @@
+.ant-pagination-options{
+    display: none !important;
+}
+.ant-table,.ant-table-container,.ant-table-body,.ant-table-tbody,.ant-table-cell{
+    min-height: 600PX !important;
+    box-sizing: border-box !important;
+}
+.ant-empty-image{
+    min-height: 200PX !important;
+    padding-top: 150PX !important;
+}
+.ant-empty{
+    min-height: 500PX !important;
+}
