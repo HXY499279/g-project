@@ -224,7 +224,7 @@ class App extends Component {
                 if (typeof (res.data) === 'string') {
                     res.data = eval(`(${res.data})`)
                 }
-                console.log(res.data[0].length)
+                // console.log(res.data[0].length)
                 for (let i = 0; i < res.data[0].length; i++) {
                     if (res.data[0][i][0] === '$other_conversions') {
                         res.data[0][i][0] = '其他转换'
@@ -264,7 +264,7 @@ class App extends Component {
                     this.setState({
                         resultData: res.data
                     })
-                    console.log('接收到的结果数据', this.state.resultData)
+                    // console.log('接收到的结果数据', this.state.resultData)
                     emitter.emit('callMe')
                     clearTimeout(timeout)
                 }, 200);

@@ -31,21 +31,21 @@ class ReasultShow extends Component {
     //返回结果数据渲染到页面
     componentDidMount = () => {
         this.eventEmitter = emitter.addListener("callMe", () => {
-            console.log("发射器被启动，数据发送到了页面组件中")
+            // console.log("发射器被启动，数据发送到了页面组件中")
             let update = function () {
                 let data = [];
                 let result = this.props.resultData
                 if (typeof (result) === 'string') {
                     result = eval(`(${result})`)
                 }
-                console.log(result)
+                // console.log(result)
                 if (result[0] !== '' && result[0] !== undefined && result !== '') {
                     for (let i = 1; i <= result[0].length; i++) {
                         data.push({
                             key: i,
                             touchEvents: `${result[0][i - 1][0]}(${result[0][i - 1][1]}) `,
                             totalClicks: result[1][i - 1],
-                            clickRate: `${result[2][i - 1]} (${(result[3][i - 1]).toFixed(4) * 100 + '%'})`,
+                            clickRate: `${result[2][i - 1]} (${(result[3][i - 1] * 100).toFixed(4) + '%'})`,
                             durationDistr: <div id={`c${i}`}></div>,
                             stepLengthDistr: <div id={`C${i}`} ></div>,
                             // durationDistr: result[4][i-1],
@@ -67,7 +67,7 @@ class ReasultShow extends Component {
             // if (this.divElem[1]) {
             //     if (this.divElem[1].innerHTML === '') {
             let timeout = setTimeout(() => {
-                console.log('直方图的第一次渲染')
+                // console.log('直方图的第一次渲染')
                 let result = this.props.resultData
                 if (typeof (result) === 'string') {
                     result = eval(`(${result})`)

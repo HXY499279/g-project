@@ -33,8 +33,8 @@ class ContentThird extends Component {
         this.props.deleteProcessEventData(index)
     }
 
-    onprocessEventsChange = (index,e) => {
-        this.props.acqProcessEventData(index,e);
+    onprocessEventsChange = (index, e) => {
+        this.props.acqProcessEventData(index, e);
 
     }
 
@@ -43,14 +43,17 @@ class ContentThird extends Component {
         return this.state.list.map((item, index) => {
             if (this.state.list[index] === 1) {
                 return (
-                    <List.Item className='listitem'>
+                    <List.Item
+                        className='listitem'
+                        key={item }
+                    >
                         <Select
                             name='processEvents'
                             key={item + 'h'}
                             className='select_middle'
                             placeholder='事件名'
                             ref={(Select) => { this.processEventsElem = Select }}
-                            onChange={this.onprocessEventsChange.bind(this,index)}
+                            onChange={this.onprocessEventsChange.bind(this, index)}
                         >
                             {this.mapRenderEventOption()};
                     </Select>

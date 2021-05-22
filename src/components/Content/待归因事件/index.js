@@ -27,14 +27,16 @@ class ContentSecond extends Component {
     handleItemClick = (index) => {
         let list = [...this.state.list]
         list[index] = 0
+        // 值变成0的时候，同时让数据数组中的数据移出
         this.setState({
             list
         })
         this.props.deleteTouchEventData(index)
     }
 
-    ontouchEventsChange = (index,e) => {
-        this.props.acqTouchEventData(index,e);
+    ontouchEventsChange = (index, e) => {
+        // console.log(index)
+        this.props.acqTouchEventData(index, e);
     }
 
     //循环渲染每一项
@@ -43,27 +45,28 @@ class ContentSecond extends Component {
             if (this.state.list[index] === 1) {
                 return (
                     <List.Item
+                        key={index}
                         className='listitem'
                     >
                         <Select
                             name='touchEvents'
-                            key={item + 'h'}
+                            key={index}
                             className='select_middle'
                             placeholder='事件名'
                             ref={(Select) => { this.touchEventsElem = Select }}
-                            onChange={this.ontouchEventsChange.bind(this,index)}
+                            onChange={this.ontouchEventsChange.bind(this, index)}
                         >
                             {this.mapRenderEventOption()};
                         </Select>
                         <Select
-                            key={item + "x"}
+                            key={index + 500}
                             className='select_middle'
                             placeholder="分组属性名"
                         >
                             {this.mapRenderAttrOption()};
                         </Select>
                         <CloseCircleOutlined
-                            key={item + 'y'}
+                            key={index + 1000}
                             style={{ display: 'inline-block', marginRight: 10 }}
                             className='icon'
                             onClick={this.handleItemClick.bind(this, index)}
