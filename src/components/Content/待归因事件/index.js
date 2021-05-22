@@ -25,6 +25,7 @@ class ContentSecond extends Component {
     }
     //删除 
     handleItemClick = (index) => {
+        console.log(index)
         let list = [...this.state.list]
         list[index] = 0
         // 值变成0的时候，同时让数据数组中的数据移出
@@ -45,7 +46,7 @@ class ContentSecond extends Component {
             if (this.state.list[index] === 1) {
                 return (
                     <List.Item
-                        key={index}
+                        key={index + 100}
                         className='listitem'
                     >
                         <Select

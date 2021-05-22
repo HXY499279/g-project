@@ -28,9 +28,7 @@ class App extends Component {
             values: [],
             sendData: {
                 targetEvent: "",
-                processEvents: [
-                    ""
-                ],
+                processEvents: [""],
                 touchEvents: [
                     ""
                 ],
@@ -145,7 +143,11 @@ class App extends Component {
     }
     //删除过程事件的数据
     deleteProcessEventData = (index) => {
-        this.state.sendData.processEvents.splice(index, 1)
+        let sendData = this.state.sendData
+        sendData.processEvents[index] = '1'
+        this.setState({
+            sendData
+        })
     }
     //获取待归因事件的数据
     acqTouchEventData = (index, value) => {
@@ -157,7 +159,11 @@ class App extends Component {
     }
     //删除待归因事件的数据
     deleteTouchEventData = (index) => {
-        this.state.sendData.touchEvents.splice(index, 1)
+        let sendData = this.state.sendData
+        sendData.touchEvents[index] = '1'
+        this.setState({
+            sendData
+        })
     }
     //获取查看方式的数据
     acqValueAttrData = (value) => {
@@ -217,9 +223,26 @@ class App extends Component {
 
     // 发送请求
     sendPostandAcquireRes = () => {
-        console.log('发送前的发送数据', this.state.sendData)
+        console.log('未处理的发送数据', this.state.sendData)
+        // 处理发送前的数据中的待归因事件和过程事件的数据
+        let workedData = Object.assign({},this.state.sendData) 
+        const willworkedTouchEventData = this.state.sendData.touchEvents
+        const willworkedProcessEventData = this.state.sendData.processEvents
+        let workedTouchEventData = willworkedTouchEventData.filter((item) => {
+            if (item !== '1') {
+                return item
+            }
+        })
+        let workedProcessEventData = willworkedProcessEventData.filter((item) => {
+            if (item !== '1') {
+                return item
+            }
+        })
+        workedData.touchEvents = workedTouchEventData
+        workedData.processEvents = workedProcessEventData
+        console.log('处理后的发送数据', workedData)
         // 发送请求
-        axios.post('/result', this.state.sendData)
+        axios.post('/result', workedData)
             .then(res => {
                 if (typeof (res.data) === 'string') {
                     res.data = eval(`(${res.data})`)

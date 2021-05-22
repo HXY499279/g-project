@@ -45,7 +45,7 @@ class ContentThird extends Component {
                 return (
                     <List.Item
                         className='listitem'
-                        key={item }
+                        key={index }
                     >
                         <Select
                             name='processEvents'
